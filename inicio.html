@@ -1,0 +1,139 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Tizixpk!
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   @keyframes text-flicker {
+    0% {
+     opacity: 1;
+    }
+    50% {
+     opacity: 0.5;
+    }
+    100% {
+     opacity: 1;
+    }
+   }
+   .flicker {
+    animation: text-flicker 1s infinite;
+   }
+   .slide-in {
+    animation: slide-in 0.5s forwards;
+   }
+   .slide-out {
+    animation: slide-out 0.5s forwards;
+   }
+   @keyframes slide-in {
+    from {
+     transform: translateY(100%);
+    }
+    to {
+     transform: translateY(0);
+    }
+   }
+   @keyframes slide-out {
+    from {
+     transform: translateY(0);
+    }
+    to {
+     transform: translateY(100%);
+    }
+   }
+   @keyframes fade-in {
+    from {
+     opacity: 0;
+    }
+    to {
+     opacity: 1;
+    }
+   }
+   .fade-in {
+    animation: fade-in 1s ease-in-out;
+   }
+  </style>
+  <script>
+   function showList(category) {
+    const lists = document.querySelectorAll('.category-list');
+    lists.forEach(list => {
+     list.classList.add('hidden');
+    });
+    document.getElementById(category).classList.remove('hidden');
+    closeChat();
+    document.getElementById('chat-button').classList.add('hidden');
+   }
+
+   function closeList(category) {
+    document.getElementById(category).classList.add('hidden');
+    document.getElementById('chat-button').classList.remove('hidden');
+   }
+
+   function redirectTo(link) {
+    window.open(link, '_blank');
+   }
+
+   function toggleChat() {
+    const chatBox = document.getElementById('chat-box');
+    if (chatBox.classList.contains('hidden')) {
+     chatBox.classList.remove('hidden');
+     chatBox.classList.remove('slide-out');
+     chatBox.classList.add('slide-in');
+    } else {
+     chatBox.classList.remove('slide-in');
+     chatBox.classList.add('slide-out');
+     setTimeout(() => {
+      chatBox.classList.add('hidden');
+     }, 500);
+    }
+    updateChatCount();
+   }
+
+   function closeChat() {
+    const chatBox = document.getElementById('chat-box');
+    chatBox.classList.remove('slide-in');
+    chatBox.classList.add('slide-out');
+    setTimeout(() => {
+     chatBox.classList.add('hidden');
+    }, 500);
+   }
+
+   function updateChatCount() {
+    const chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+    document.getElementById('chat-count').innerText = chatMessages.length;
+   }
+
+   function sendMessage() {
+    const messageInput = document.getElementById('message-input');
+    const message = messageInput.value.trim();
+    if (message) {
+     const chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+     chatMessages.push(message);
+     localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
+     messageInput.value = '';
+     displayMessages();
+     updateChatCount();
+    }
+   }
+
+   function displayMessages() {
+    const chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+    const chatContent = document.getElementById('chat-content');
+    chatContent.innerHTML = chatMessages.map(msg => `<div class="p-2">${msg}</div>`).join('');
+   }
+
+   function toggleMenu() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('hidden');
+   }
+
+   document.addEventListener('DOMContentLoaded', () => {
+    displayMessages();
+    updateChatCount();
+   });
+  </script>
+   
