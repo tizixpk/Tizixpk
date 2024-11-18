@@ -1,0 +1,400 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Inicio - Tizixpk!
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   @keyframes text-flicker {
+    0% {
+     opacity: 1;
+    }
+    50% {
+     opacity: 0.5;
+    }
+    100% {
+     opacity: 1;
+    }
+   }
+   .flicker {
+    animation: text-flicker 1s infinite;
+   }
+   .slide-in {
+    animation: slide-in 0.5s forwards;
+   }
+   .slide-out {
+    animation: slide-out 0.5s forwards;
+   }
+   @keyframes slide-in {
+    from {
+     transform: translateY(100%);
+    }
+    to {
+     transform: translateY(0);
+    }
+   }
+   @keyframes slide-out {
+    from {
+     transform: translateY(0);
+    }
+    to {
+     transform: translateY(100%);
+    }
+   }
+   @keyframes fade-in {
+    from {
+     opacity: 0;
+    }
+    to {
+     opacity: 1;
+    }
+   }
+   .fade-in {
+    animation: fade-in 1s ease-in-out;
+   }
+  </style>
+  <script>
+   function showList(category) {
+    const lists = document.querySelectorAll('.category-list');
+    lists.forEach(list => {
+     list.classList.add('hidden');
+    });
+    document.getElementById(category).classList.remove('hidden');
+    closeChat();
+    document.getElementById('chat-button').classList.add('hidden');
+   }
+
+   function closeList(category) {
+    document.getElementById(category).classList.add('hidden');
+    document.getElementById('chat-button').classList.remove('hidden');
+   }
+
+   function redirectTo(link) {
+    window.open(link, '_blank');
+   }
+
+   function toggleChat() {
+    const chatBox = document.getElementById('chat-box');
+    if (chatBox.classList.contains('hidden')) {
+     chatBox.classList.remove('hidden');
+     chatBox.classList.remove('slide-out');
+     chatBox.classList.add('slide-in');
+    } else {
+     chatBox.classList.remove('slide-in');
+     chatBox.classList.add('slide-out');
+     setTimeout(() => {
+      chatBox.classList.add('hidden');
+     }, 500);
+    }
+    updateChatCount();
+   }
+
+   function closeChat() {
+    const chatBox = document.getElementById('chat-box');
+    chatBox.classList.remove('slide-in');
+    chatBox.classList.add('slide-out');
+    setTimeout(() => {
+     chatBox.classList.add('hidden');
+    }, 500);
+   }
+
+   function updateChatCount() {
+    const chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+    document.getElementById('chat-count').innerText = chatMessages.length;
+   }
+
+   function sendMessage() {
+    const messageInput = document.getElementById('message-input');
+    const message = messageInput.value.trim();
+    if (message) {
+     const chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+     chatMessages.push(message);
+     localStorage.setItem('chatMessages', JSON.stringify(chatMessages));
+     messageInput.value = '';
+     displayMessages();
+     updateChatCount();
+    }
+   }
+
+   function displayMessages() {
+    const chatMessages = JSON.parse(localStorage.getItem('chatMessages')) || [];
+    const chatContent = document.getElementById('chat-content');
+    chatContent.innerHTML = chatMessages.map(msg => `<div class="p-2">${msg}</div>`).join('');
+   }
+
+   function toggleMenu() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('hidden');
+   }
+
+   document.addEventListener('DOMContentLoaded', () => {
+    displayMessages();
+    updateChatCount();
+   });
+  </script>
+ </head>
+ <body class="bg-cover bg-center fade-in" style="background-image: url('https://placehold.co/1920x1080');">
+  <video autoplay loop muted class="absolute w-full h-full object-cover">
+   <source src="duki.mp4" type="video/mp4"/>
+  </video>
+  <div class="relative flex flex-col md:flex-row h-screen">
+   <!-- Sidebar -->
+   <div class="w-full md:w-1/4 bg-black bg-opacity-50 p-4 hidden md:block" id="sidebar">
+    <h1 class="text-3xl text-red-500 font-bold mb-8 flicker">
+     Tizixpk!
+    </h1>
+    <ul class="space-y-4 text-white">
+     <li class="hover:bg-gray-700 p-2 rounded cursor-pointer" onclick="showList('apps')">
+      Apps
+     </li>
+     <li class="hover:bg-gray-700 p-2 rounded cursor-pointer" onclick="showList('juegos-android')">
+      Juegos Android
+     </li>
+     <li class="hover:bg-gray-700 p-2 rounded cursor-pointer" onclick="showList('juegos-pc')">
+      Juegos PC
+     </li>
+     <li class="hover:bg-gray-700 p-2 rounded cursor-pointer" onclick="showList('utilidades')">
+      Utilidades
+     </li>
+     <li class="hover:bg-gray-700 p-2 rounded cursor-pointer" onclick="showList('ios')">
+      IOS
+     </li>
+     <li class="hover:bg-gray-700 p-2 rounded cursor-pointer" onclick="showList('programas')">
+      Programas
+     </li>
+     <li class="hover:bg-gray-700 p-2 rounded cursor-pointer" onclick="showList('sistemas')">
+      Sistemas
+     </li>
+    </ul>
+    <div class="absolute bottom-4 left-4 flex space-x-4 text-white">
+     <a href="https://www.instagram.com/tizixpk" target="_blank">
+      <i class="fab fa-instagram text-2xl">
+      </i>
+     </a>
+     <a href="https://www.facebook.com/tizixpk" target="_blank">
+      <i class="fab fa-facebook text-2xl">
+      </i>
+     </a>
+     <a href="https://www.twitter.com/tizixpz" target="_blank">
+      <i class="fab fa-twitter text-2xl">
+      </i>
+     </a>
+    </div>
+   </div>
+   <!-- Mobile Menu Button -->
+   <div class="md:hidden p-4">
+    <button class="bg-red-500 text-white px-4 py-2 rounded-lg" onclick="toggleMenu()">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+   </div>
+   <!-- Main Content -->
+   <div class="flex-1 flex flex-col items-center justify-center">
+   </div>
+   <!-- Right Sidebar -->
+   <div class="w-full md:w-1/4 flex flex-col items-center justify-center">
+    <div class="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white p-2 rounded-lg cursor-pointer" id="chat-button" onclick="toggleChat()">
+     Chat
+     <span class="ml-2" id="chat-count">
+      0
+     </span>
+    </div>
+   </div>
+  </div>
+  <!-- Category Lists -->
+  <div class="absolute top-0 right-0 w-full md:w-1/4 h-screen bg-black bg-opacity-50 p-4 hidden category-list" id="apps">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-white text-lg">
+     Apps
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="closeList('apps')">
+    </i>
+   </div>
+   <ul class="text-white space-y-2">
+    <li class="cursor-pointer" onclick="redirectTo('https://www.mediafire.com/file/jvwenlsx6ntufkz')">
+     Geometry Dash 2.2
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://www.mediafire.com/file/ih580njmotctmu6')">
+     Planta Vs Zombies 
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://app3.com')">
+     App 3
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://app4.com')">
+     App 4
+    </li>
+   </ul>
+   <div class="mt-4">
+    <a class="hidden" href="#" id="download-button" target="_blank">
+     <button class="bg-red-500 text-white px-4 py-2 rounded-lg flex items-center">
+      <i class="fas fa-download mr-2">
+      </i>
+      Descargar
+     </button>
+    </a>
+   </div>
+  </div>
+  <div class="absolute top-0 right-0 w-full md:w-1/4 h-screen bg-black bg-opacity-50 p-4 hidden category-list" id="juegos-android">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-white text-lg">
+     Juegos Android
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="closeList('juegos-android')">
+    </i>
+   </div>
+   <ul class="text-white space-y-2">
+    <li class="cursor-pointer" onclick="redirectTo('https://juego-android1.com')">
+     Juego Android 1
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://juego-android2.com')">
+     Juego Android 2
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://juego-android3.com')">
+     Juego Android 3
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://juego-android4.com')">
+     Juego Android 4
+    </li>
+   </ul>
+  </div>
+  <div class="absolute top-0 right-0 w-full md:w-1/4 h-screen bg-black bg-opacity-50 p-4 hidden category-list" id="juegos-pc">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-white text-lg">
+     Juegos PC
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="closeList('juegos-pc')">
+    </i>
+   </div>
+   <ul class="text-white space-y-2">
+    <li class="cursor-pointer" onclick="redirectTo('https://juego-pc1.com')">
+     Juego PC 1
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://juego-pc2.com')">
+     Juego PC 2
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://juego-pc3.com')">
+     Juego PC 3
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://juego-pc4.com')">
+     Juego PC 4
+    </li>
+   </ul>
+  </div>
+  <div class="absolute top-0 right-0 w-full md:w-1/4 h-screen bg-black bg-opacity-50 p-4 hidden category-list" id="utilidades">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-white text-lg">
+     Utilidades
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="closeList('utilidades')">
+    </i>
+   </div>
+   <ul class="text-white space-y-2">
+    <li class="cursor-pointer" onclick="redirectTo('https://utilidad1.com')">
+     Utilidad 1
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://utilidad2.com')">
+     Utilidad 2
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://utilidad3.com')">
+     Utilidad 3
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://utilidad4.com')">
+     Utilidad 4
+    </li>
+   </ul>
+  </div>
+  <div class="absolute top-0 right-0 w-full md:w-1/4 h-screen bg-black bg-opacity-50 p-4 hidden category-list" id="ios">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-white text-lg">
+     IOS
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="closeList('ios')">
+    </i>
+   </div>
+   <ul class="text-white space-y-2">
+    <li class="cursor-pointer" onclick="redirectTo('https://ios1.com')">
+     IOS App 1
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://ios2.com')">
+     IOS App 2
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://ios3.com')">
+     IOS App 3
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://ios4.com')">
+     IOS App 4
+    </li>
+   </ul>
+  </div>
+  <div class="absolute top-0 right-0 w-full md:w-1/4 h-screen bg-black bg-opacity-50 p-4 hidden category-list" id="programas">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-white text-lg">
+     Programas
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="closeList('programas')">
+    </i>
+   </div>
+   <ul class="text-white space-y-2">
+    <li class="cursor-pointer" onclick="redirectTo('https://programa1.com')">
+     Programa 1
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://programa2.com')">
+     Programa 2
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://programa3.com')">
+     Programa 3
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://programa4.com')">
+     Programa 4
+    </li>
+   </ul>
+  </div>
+  <div class="absolute top-0 right-0 w-full md:w-1/4 h-screen bg-black bg-opacity-50 p-4 hidden category-list" id="sistemas">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-white text-lg">
+     Sistemas
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="closeList('sistemas')">
+    </i>
+   </div>
+   <ul class="text-white space-y-2">
+    <li class="cursor-pointer" onclick="redirectTo('https://sistema1.com')">
+     Sistema 1
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://sistema2.com')">
+     Sistema 2
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://sistema3.com')">
+     Sistema 3
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://sistema4.com')">
+     Sistema 4
+    </li>
+   </ul>
+  </div>
+  <!-- Chat Box -->
+  <div class="absolute bottom-20 right-4 w-full md:w-1/4 bg-black bg-opacity-50 text-white p-4 rounded-lg hidden" id="chat-box">
+   <div class="flex justify-between items-center mb-2">
+    <h2 class="text-lg">
+     Chat en vivo
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="toggleChat()">
+    </i>
+   </div>
+   <div class="flex flex-col h-64">
+    <div class="flex-1 overflow-y-auto" id="chat-content">
+    </div>
+    <div class="mt-2">
+     <input class="w-full p-2 rounded-lg bg-gray-800 text-white" id="message-input" placeholder="Escribe un mensaje..." type="text"/>
+     <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2 w-full" onclick="sendMessage()">
+      Enviar
+     </button>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
