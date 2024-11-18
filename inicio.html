@@ -136,4 +136,265 @@
     updateChatCount();
    });
   </script>
-   
+    </head>
+ <body class="bg-cover bg-center fade-in" style="background-image: url('duki.mp4');">
+  <video autoplay loop muted class="absolute w-full h-full object-cover">
+   <source src="duki.mp4" type="video/mp4"/>
+  </video>
+  <div class="relative flex flex-col md:flex-row h-screen">
+   <!-- Sidebar -->
+   <div class="w-full md:w-1/4 bg-black bg-opacity-50 p-4 hidden md:block" id="sidebar">
+    <h1 class="text-3xl text-red-500 font-bold mb-8 flicker">
+     Tizixpk!
+    </h1>
+    <ul class="space-y-4 text-white">
+     <li class="hover:bg-gray-700 p-2 rounded cursor-pointer" onclick="showList('apps')">
+      Apps
+     </li>
+     <li class="hover:bg-gray-700 p-2 rounded cursor-pointer" onclick="showList('juegos-android')">
+      Juegos Android
+     </li>
+     <li class="hover:bg-gray-700 p-2 rounded cursor-pointer" onclick="showList('juegos-pc')">
+      Juegos PC
+     </li>
+     <li class="hover:bg-gray-700 p-2 rounded cursor-pointer" onclick="showList('utilidades')">
+      Utilidades
+     </li>
+     <li class="hover:bg-gray-700 p-2 rounded cursor-pointer" onclick="showList('ios')">
+      IOS
+     </li>
+     <li class="hover:bg-gray-700 p-2 rounded cursor-pointer" onclick="showList('programas')">
+      Programas
+     </li>
+     <li class="hover:bg-gray-700 p-2 rounded cursor-pointer" onclick="showList('sistemas')">
+      Sistemas
+     </li>
+    </ul>
+    <div class="absolute bottom-4 left-4 flex space-x-4 text-white">
+     <a href="https://www.instagram.com/tizixpk" target="_blank">
+      <i class="fab fa-instagram text-2xl">
+      </i>
+     </a>
+     <a href="https://www.facebook.com/tizixpk" target="_blank">
+      <i class="fab fa-facebook text-2xl">
+      </i>
+     </a>
+     <a href="https://www.twitter.com/tizixpz" target="_blank">
+      <i class="fab fa-twitter text-2xl">
+      </i>
+     </a>
+    </div>
+   </div>
+   <!-- Mobile Menu Button -->
+   <div class="md:hidden p-4">
+    <button class="bg-red-500 text-white px-4 py-2 rounded-lg" onclick="toggleMenu()">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+   </div>
+   <!-- Main Content -->
+   <div class="flex-1 flex flex-col items-center justify-center">
+   </div>
+   <!-- Right Sidebar -->
+   <div class="w-full md:w-1/4 flex flex-col items-center justify-center">
+    <div class="absolute bottom-4 right-4 bg-black bg-opacity-50 text-white p-2 rounded-lg cursor-pointer" id="chat-button" onclick="toggleChat()">
+     Chat
+     <span class="ml-2" id="chat-count">
+      0
+     </span>
+    </div>
+   </div>
+  </div>
+  <!-- Category Lists -->
+  <div class="absolute top-0 right-0 w-full md:w-1/4 h-screen bg-black bg-opacity-50 p-4 hidden category-list" id="apps">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-white text-lg">
+     Apps
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="closeList('apps')">
+    </i>
+   </div>
+   <ul class="text-white space-y-2">
+    <li class="cursor-pointer" onclick="redirectTo('https://www.mediafire.com/file/uxstww2qgm6d5om/KineMaster-pro%252Bthe-thunder_16.apk.apk/file')">
+     Kinemaster Pro
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://www.mediafire.com/file/rrx5c3mr5o5norr/PPSSPP_LITE.apk/file')">
+     PSSSP LITE
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://www.mediafire.com/file/v4qijha3ydpwi3m/NewPipeLegacy-v0.20.8.apk/file')">
+     Youtube Lite
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://www.mediafire.com/file/5iiqxd9mhl9n82i/Es_File_Explorer_PRO_.apk/file')">
+     Es File Explored pro
+    </li>
+   </ul>
+   <div class="mt-4">
+    <a class="hidden" href="#" id="download-button" target="_blank">
+     <button class="bg-red-500 text-white px-4 py-2 rounded-lg flex items-center">
+      <i class="fas fa-download mr-2">
+      </i>
+      Descargar
+     </button>
+    </a>
+   </div>
+  </div>
+  <div class="absolute top-0 right-0 w-full md:w-1/4 h-screen bg-black bg-opacity-50 p-4 hidden category-list" id="juegos-android">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-white text-lg">
+     Juegos Android
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="closeList('juegos-android')">
+    </i>
+   </div>
+   <ul class="text-white space-y-2">
+    <li class="cursor-pointer" onclick="redirectTo('https://www.mediafire.com/file/jvwenlsx6ntufkz')">
+     Geometry Dash 2.2
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://www.mediafire.com/file/ih580njmotctmu6')">
+     Planta vs Zombies (APK + OBB)
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://www.mediafire.com/file/wwzp91l1bdy3qoo')">
+     OptiCraft PE 1.20.12
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://www.mediafire.com/file/1ulax2qzdaldjs1/angry-neighbor-2.1.apk/file')">
+     angry neighbor 2.1
+   </li>
+   </ul>
+  </div>
+  <div class="absolute top-0 right-0 w-full md:w-1/4 h-screen bg-black bg-opacity-50 p-4 hidden category-list" id="juegos-pc">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-white text-lg">
+     Juegos PC
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="closeList('juegos-pc')">
+    </i>
+   </div>
+   <ul class="text-white space-y-2">
+    <li class="cursor-pointer" onclick="redirectTo('https://www.mediafire.com/file/9defv9zp58csgmu/Geometry_Dash_2.2_Optimizado_By_OptiJuegos.7z/file')">
+     Geometry dash 2.2
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://www.mediafire.com/file/ipd41l1fov0ho59/60_Seconds%2521_Optimized.7z/file')">
+     60 Seconds! (optimizado)
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://juego-pc3.com')">
+     FNAF 1,2 Y 3
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://juego-pc4.com')">
+     Cuphead Lite
+    </li>
+   </ul>
+  </div>
+  <div class="absolute top-0 right-0 w-full md:w-1/4 h-screen bg-black bg-opacity-50 p-4 hidden category-list" id="utilidades">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-white text-lg">
+     Utilidades
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="closeList('utilidades')">
+    </i>
+   </div>
+   <ul class="text-white space-y-2">
+    <li class="cursor-pointer" onclick="redirectTo('https://utilidad1.com')">
+     Bluestacks Lite
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://utilidad2.com')">
+     Dolphin (WII)
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://utilidad3.com')">
+     Optidroid (Emulador Android Optimizado)
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://utilidad4.com')">
+     PSCX2 (PS2)
+    </li>
+   </ul>
+  </div>
+  <div class="absolute top-0 right-0 w-full md:w-1/4 h-screen bg-black bg-opacity-50 p-4 hidden category-list" id="ios">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-white text-lg">
+     IOS
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="closeList('ios')">
+    </i>
+   </div>
+   <ul class="text-white space-y-2">
+    <li class="cursor-pointer" onclick="redirectTo('https://ios1.com')">
+     Scarlet
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://ios2.com')">
+     POU (IPA)
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://ios3.com')">
+     SPOTIFY MOD (IPA)
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://ios4.com')">
+     Photomath Plus (IPA)
+    </li>
+   </ul>
+  </div>
+  <div class="absolute top-0 right-0 w-full md:w-1/4 h-screen bg-black bg-opacity-50 p-4 hidden category-list" id="programas">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-white text-lg">
+     Programas
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="closeList('programas')">
+    </i>
+   </div>
+   <ul class="text-white space-y-2">
+    <li class="cursor-pointer" onclick="redirectTo('https://programa1.com')">
+     Activador Windows
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://programa2.com')">
+     Driver Booster Potable (Instalador de drivers)
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://programa3.com')">
+     Office 2007 (Word)
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://programa4.com')">
+     Steam Windows 7
+    </li>
+   </ul>
+  </div>
+  <div class="absolute top-0 right-0 w-full md:w-1/4 h-screen bg-black bg-opacity-50 p-4 hidden category-list" id="sistemas">
+   <div class="flex justify-between items-center mb-4">
+    <h2 class="text-white text-lg">
+     Sistemas
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="closeList('sistemas')">
+    </i>
+   </div>
+   <ul class="text-white space-y-2">
+    <li class="cursor-pointer" onclick="redirectTo('https://sistema1.com')">
+     OptiOs 11 x64 (Windows 11)
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://sistema2.com')">
+     OptiOs 10 x64 (Windows 10)
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://sistema3.com')">
+     OptiOs 7 x64 (Windows 7)
+    </li>
+    <li class="cursor-pointer" onclick="redirectTo('https://sistema4.com')">
+     OptiOs PE 7.1  (Android 7, X86)
+    </li>
+   </ul>
+  </div>
+  <!-- Chat Box -->
+  <div class="absolute bottom-20 right-4 w-full md:w-1/4 bg-black bg-opacity-50 text-white p-4 rounded-lg hidden" id="chat-box">
+   <div class="flex justify-between items-center mb-2">
+    <h2 class="text-lg">
+     Chat en vivo
+    </h2>
+    <i class="fas fa-times cursor-pointer" onclick="toggleChat()">
+    </i>
+   </div>
+   <div class="flex flex-col h-64">
+    <div class="flex-1 overflow-y-auto" id="chat-content">
+    </div>
+    <div class="mt-2">
+     <input class="w-full p-2 rounded-lg bg-gray-800 text-white" id="message-input" placeholder="Escribe un mensaje..." type="text"/>
+     <button class="bg-red-500 text-white px-4 py-2 rounded-lg mt-2 w-full" onclick="sendMessage()">
+      Enviar
+     </button>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
