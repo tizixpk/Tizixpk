@@ -1,7 +1,7 @@
 <h1 align="center"><b>Hi , I'm Tizixpk! </b><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35"></h1>
 <!-- relleno -->
 
-<img src="https://komarev.com/ghpvc/?username=tizixpk&label=Profile%20views&color=0e75b6&style=flat" width="30px">&nbsp;***About me***
+<img src="![image](https://github.com/user-attachments/assets/20911fe8-28fa-455b-8b81-637e760225d9)" width="30px">&nbsp;***About me***
 <!-- relleno -->
 
 I’m Tiziano Pirez, an IT student from Argentina. Currently, I’m learning HTML, JS, CSS, and C++, with a particular interest in front-end design. I love to learn and create new, innovative, and creative solutions.
