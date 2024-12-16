@@ -1,7 +1,11 @@
 <h1 align="center"><b>Hi , I'm Tizixpk! </b><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35"></h1>
 <!-- relleno -->
+
 <img src="https://media.giphy.com/media/ObNTw8Uzwy6KQ/giphy.gif" width="30px">&nbsp;***About me***
+<!-- relleno -->
+
 I’m Tiziano Pirez, an IT student from Argentina. Currently, I’m learning HTML, JS, CSS, and C++, with a particular interest in front-end design. I love to learn and create new, innovative, and creative solutions.
+
 <!-- relleno -->
 🌱 I’m currently learning...
 HTML
@@ -12,9 +16,13 @@ C++
 ✔ Ask me anything, I’m happy to help.
 👾 I also have social media, so feel free to check out my profile!
 📫 Reach out to me at: <a href="mailto:pireztizi@gmail.com">pireztizi@gmail.com</a>
+
 <!-- relleno -->
+
 ## My Skills Include
+
 <!-- relleno -->
+
 <h4> Languages </h4>
 <span> 
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
