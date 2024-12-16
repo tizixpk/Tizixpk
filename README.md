@@ -11,11 +11,11 @@ I’m Tiziano Pirez, an IT student from Argentina. Currently, I’m learning HTM
 <!-- relleno -->
 <img src="flecha.gif" width="15px"> HTML
 <!-- relleno -->
-JS
+<img src="flecha.gif" width="15px"> JS
 <!-- relleno -->
-CSS
+<img src="flecha.gif" width="15px"> CSS
 <!-- relleno -->
-C++
+<img src="flecha.gif" width="15px"> C++
 <!-- relleno -->
 👯 I’m interested in collaborating on open source projects.
 ✔ Ask me anything, I’m happy to help.
