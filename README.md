@@ -10,19 +10,13 @@ I’m Tiziano Pirez, an IT student from Argentina. Currently, I’m learning HTM
 🌱 I’m currently learning...
 
 HTML
-
 JS
-
 CSS
-
 C++
 
 👯 I’m interested in collaborating on open source projects.
-
 ✔ Ask me anything, I’m happy to help.
-
 👾 I also have social media, so feel free to check out my profile!
-
 📫 Reach out to me at: <a href="mailto:pireztizi@gmail.com">pireztizi@gmail.com</a>
 
 <!-- relleno -->
