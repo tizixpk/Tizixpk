@@ -8,12 +8,15 @@ I’m Tiziano Pirez, an IT student from Argentina. Currently, I’m learning HTM
 
 <!-- relleno -->
 🌱 I’m currently learning...
-
+<!-- relleno -->
 HTML
+<!-- relleno -->
 JS
+<!-- relleno -->
 CSS
+<!-- relleno -->
 C++
-
+<!-- relleno -->
 👯 I’m interested in collaborating on open source projects.
 ✔ Ask me anything, I’m happy to help.
 👾 I also have social media, so feel free to check out my profile!
