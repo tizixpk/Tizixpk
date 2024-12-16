@@ -9,7 +9,7 @@ I’m Tiziano Pirez, an IT student from Argentina. Currently, I’m learning HTM
 <!-- relleno -->
 🌱 I’m currently learning...
 <!-- relleno -->
-HTML
+<img src="flecha.gif" width="30px"> HTML
 <!-- relleno -->
 JS
 <!-- relleno -->
